@@ -1,0 +1,55 @@
+<div class="grid-container fluid margin-horizontal-3">
+  <div class="grid-x grid-margin-x text-center">
+    <div class="cell small-12 ">
+      <h4>
+        Welcomezaq to {{ title }}!
+      </h4>
+  <img width="100" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+      <i class="fas fa-address-book"></i>
+    </div>
+  </div>
+  <div class="grid-x grid-margin-x">
+    <div class="cell smal-12 medium-4">
+      <h6 class="subheader margin-bottom-2">Add A Task</h6>
+      <div class="input-group input-box width-75">
+        <input class="input-group-field" placeholder="Enter task" type="text" [(ngModel)]="newTask">
+        <div class="input-group-button">
+          <input type="submit" class="button" value="Add New" (click)="addNewTask()">
+        </div>
+      </div>
+    </div>
+    <div class="cell smal-12 medium-4">
+      <h6 class="subheader margin-bottom-2">To-do List</h6>
+      <div class="waiting-box" *ngIf="tasksList.length> 0; else noTask">
+        <div class="item" *ngFor="let task of tasksList">
+          <span>{{task}}</span>
+          <a class="padding-horizontal-1" (click)="taskDone(task)">
+            <i class="fas fa-check"></i>
+            <i class="fas fa-address-book"></i>
+          </a>
+          <a class="padding-horizontal-1" (click)="removeTask(task)">
+            <i class="fas fa-trash-alt"></i>
+          </a>
+        </div>
+      </div>
+      <ng-template class="no-task-box" #noTask>
+        <i class="fas fa-address-book"></i>
+        <span>no tasks to besss done</span>
+      </ng-template>
+    </div>
+    <div class="cell smal-12 medium-4">
+      <h6 class="subheader margin-bottom-2">Tasks Completed</h6>
+      <div class="done-box"  *ngIf="tasksListDone.length> 0; else noTaskDone">
+        <div class="item" *ngFor="let task of tasksListDone">
+          <span>{{task}}</span>
+        </div>
+      </div>
+      <ng-template class="no-task-box" #noTaskDone>
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>no tasks done</span>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+
