@@ -1,13 +1,10 @@
-Angular TODO
----
+# Angular-TODO
+##### Starting the application
+1. Download the latest changes
+``` npm i ```
 
-Install
----
+2. To run the project. 
+```npm start ```
 
-`npm i`
-
-
-Usage
----
-
-`npm start`
+3. Open the browser
+_The browser will start automatically_ ```localhost:4200```
